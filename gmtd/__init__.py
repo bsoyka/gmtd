@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple
 
 import click
 
-__version__ = "1.0.0b2"
+__version__ = "1.1.0b1"
 
 
 def _get_package_metadata(package: str) -> Dict[str, str]:
