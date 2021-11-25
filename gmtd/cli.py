@@ -3,7 +3,7 @@
 from argparse import ArgumentParser
 from importlib.metadata import PackageNotFoundError
 from sys import exit
-
+from webbrowser import open as open_url
 from colorama import Fore, Style, init
 
 from . import __version__, get_documentation
@@ -24,6 +24,12 @@ def main():
     parser.add_argument(
         "package", help="get the documentation links for a package", type=str
     )
+    parser.add_argument(
+        "-o",
+        "--open",
+        action="store_true",
+        help="open the first result in your browser",
+    )
     args = parser.parse_args()
 
     package = args.package
@@ -43,6 +49,9 @@ def main():
 
         for url in urls:
             print("    - " + Fore.BLUE + url + Style.RESET_ALL)
+
+        if args.open:
+            open_url(urls[0])
     else:
         print(
             ERROR_STYLE
