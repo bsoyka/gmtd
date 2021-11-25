@@ -45,5 +45,5 @@ profile = "black"
 [tool.poe.tasks]
 _black = "black ."
 _isort = "isort ."
-format = ["_black", "_isort"]
-install = "flit install"
+format = {sequence = ["_black", "_isort"], help = "Format all Python code"}
+install = {cmd = "flit install -s", help = "Install the library locally"}
