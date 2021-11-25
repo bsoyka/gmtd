@@ -5,7 +5,6 @@ from importlib.metadata import metadata
 from typing import Dict, List, Tuple
 
 import click
-from loguru import logger
 
 __version__ = "1.0.0b1"
 
