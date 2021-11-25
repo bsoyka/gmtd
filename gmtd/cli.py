@@ -4,6 +4,7 @@ from argparse import ArgumentParser
 from importlib.metadata import PackageNotFoundError
 from sys import exit
 from webbrowser import open as open_url
+
 from colorama import Fore, Style, init
 
 from . import __version__, get_documentation
