@@ -1,40 +1,53 @@
 """Give Me the Docs's command-line interface"""
 
+from argparse import ArgumentParser
 from importlib.metadata import PackageNotFoundError
 from sys import exit
 
-import click
+from colorama import Fore, Style, init
 
 from . import __version__, get_documentation
 
+ERROR_STYLE = Style.BRIGHT + Fore.RED
 
-@click.command()
-@click.help_option("-h", "--help")
-@click.version_option(__version__, "-v", "--version", prog_name="Give Me the Docs")
-@click.argument("package", required=True)
-def main(package: str):
-    """Get the documentation link for PACKAGE"""
+
+def main():
+    """Main entry point for the CLI"""
+
+    init()
+
+    parser = ArgumentParser(
+        prog="gmtds",
+        description="Give Me the Docs finds the docs for Python packages so "
+        f"you don't have to. (v{__version__})",
+    )
+    parser.add_argument(
+        "package", help="get the documentation links for a package", type=str
+    )
+    args = parser.parse_args()
+
+    package = args.package
 
     try:
         urls = get_documentation(package)
     except PackageNotFoundError:
-        click.echo(
-            click.style(f"Package {package} not found", fg="red", bold=True)
-        )
+        print(ERROR_STYLE + f"Package {package} not found" + Style.RESET_ALL)
         exit(1)
 
     if urls:
-        click.echo(
-            click.style(f"Found documentation for {package}:\n", fg="green")
+        print(
+            Fore.GREEN
+            + f"Found documentation for {package}:\n"
+            + Style.RESET_ALL
         )
 
         for url in urls:
-            click.echo(click.style(f"    - {url}", fg="blue"))
+            print("    - " + Fore.BLUE + url + Style.RESET_ALL)
     else:
-        click.echo(
-            click.style(
-                f"No documentation found for {package}", fg="red", bold=True
-            )
+        print(
+            ERROR_STYLE
+            + f"No documentation found for {package}"
+            + Style.RESET_ALL
         )
 
 
