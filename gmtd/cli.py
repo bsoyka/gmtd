@@ -12,7 +12,7 @@ from . import __version__, get_documentation
 ERROR_STYLE = Style.BRIGHT + Fore.RED
 
 
-def main():
+def main() -> None:
     """Main entry point for the CLI"""
 
     init()
