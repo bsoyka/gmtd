@@ -48,3 +48,6 @@ _black = "black ."
 _isort = "isort ."
 format = {sequence = ["_autoflake", "_black", "_isort"], help = "Format all Python code"}
 install = {cmd = "flit install -s", help = "Install the library locally"}
+
+[tool.pylint.VARIABLES]
+allowed-redefined-builtins = "exit"
