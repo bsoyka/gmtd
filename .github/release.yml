@@ -1,0 +1,17 @@
+changelog:
+  exclude:
+    labels:
+      - "m: changelog exclude"
+  categories:
+    - title: Breaking Changes
+      labels:
+        - "m: breaking"
+    - title: Features
+      labels:
+        - "t: feature"
+    - title: Squashed Bugs
+      labels:
+        - "t: bug"
+    - title: Other Changes
+      labels:
+        - "*"
