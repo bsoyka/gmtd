@@ -1,10 +1,7 @@
 """Give Me the Docs finds documentation links for Python packages so you don't have to."""
 
-from enum import Enum
 from importlib.metadata import metadata
-from typing import Dict, List, Tuple
-
-import click
+from typing import Dict, List
 
 __version__ = "1.1.0b2"
 

@@ -43,7 +43,8 @@ line_length = 79
 profile = "black"
 
 [tool.poe.tasks]
+_autoflake = "autoflake -i -r --remove-all-unused-imports ."
 _black = "black ."
 _isort = "isort ."
-format = {sequence = ["_black", "_isort"], help = "Format all Python code"}
+format = {sequence = ["_autoflake", "_black", "_isort"], help = "Format all Python code"}
 install = {cmd = "flit install -s", help = "Install the library locally"}

@@ -29,7 +29,7 @@ Run the following command to ensure you have the latest versions of all the
 necessary development tools installed for this project:
 
 ```console
-pip install --upgrade black flit isort poethepoet
+pip install --upgrade autoflake black flit isort poethepoet
 ```
 
 No additional configuration is needed to use any of these tools once installed.
