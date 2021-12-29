@@ -18,7 +18,7 @@ def main():
     init()
 
     parser = ArgumentParser(
-        prog="gmtds",
+        prog="gmtd",
         description="Give Me the Docs finds the docs for Python packages so "
         f"you don't have to. (v{__version__})",
     )
