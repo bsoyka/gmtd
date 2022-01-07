@@ -2,7 +2,6 @@
     "recommendations": [
         "editorconfig.editorconfig",
         "marvhen.reflow-markdown",
-        "ms-python.python",
-        "vtrois.gitmoji-vscode"
+        "ms-python.python"
     ]
 }
