@@ -27,4 +27,16 @@ Give Me the Docs officially supports Python 3.8+.
 
 ## API Reference
 
-Coming soon!
+### `gmtd.get_documentation(package_name)`
+
+Gets the documentation URL for a package.
+
+#### Args
+* **`package`** *(`str`)*: The name of the package to get documentation for.
+
+#### Returns:
+*(`List[str]`)*: A list of possible documentation URLs for the package, ordered from most to
+least likely to be official documentation.
+
+#### Raises:
+* **`PackageNotFoundError`**: If the package is not installed.
