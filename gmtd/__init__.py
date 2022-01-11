@@ -38,7 +38,7 @@ def get_documentation(package: str) -> List[str]:
 
     package_metadata = _get_package_metadata(package)
 
-    results = []
+    results: List[str] = []
 
     # Try project URLs for documentation link first
     if "project_url" in package_metadata:
